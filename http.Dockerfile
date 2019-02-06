@@ -1,4 +1,4 @@
-FROM gcr.io/nano-stream/nano-stream-app:http
+FROM dockersubtest/nano-larry:latest
 LABEL maintainer="Larry Cai <larrycai.jpl@gmail.com>"
 # Original_builder="Allen Day <allenday@allenday.com"
 # Lines commented out have been pre-installed/ran
