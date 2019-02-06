@@ -5,7 +5,7 @@ LABEL maintainer="Larry Cai <larrycai.jpl@gmail.com>"
 
 EXPOSE 80
 
-ENV IMAGE_PACKAGES="apache2 bwa gzip kalign tar wget build-essential"
+# ENV IMAGE_PACKAGES="apache2 bwa gzip kalign tar wget build-essential"
 
 # RUN apt-get -y update
 # RUN apt-get -y --no-install-recommends install $IMAGE_PACKAGES
