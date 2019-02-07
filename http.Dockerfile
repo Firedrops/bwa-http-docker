@@ -1,4 +1,4 @@
-FROM dockersubtest/nano-larry:latest
+FROM dockersubtest/nano-larry-http:latest
 LABEL maintainer="Larry Cai <larrycai.jpl@gmail.com>"
 # Original_builder="Allen Day <allenday@allenday.com"
 # Lines commented out have been pre-installed/ran
