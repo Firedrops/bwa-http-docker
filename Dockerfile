@@ -9,7 +9,7 @@ ENV IMAGE_PACKAGES="apache2 bwa gzip kalign tar wget"
 RUN apt-get -y update
 RUN apt-get -y --no-install-recommends install $IMAGE_PACKAGES
 
-RUN apt-get install autoconf automake make gcc perl zlib1g-dev libz-dev libbz2-dev liblzma-dev libcurl4-gnutls-dev libssl-dev libncurses5-dev
+RUN apt-get -y install autoconf automake make gcc perl zlib1g-dev libz-dev libbz2-dev liblzma-dev libcurl4-gnutls-dev libssl-dev libncurses5-dev
 RUN apt install python3-pip -y
 RUN apt install vim -y
 RUN git clone https://github.com/lh3/minimap2
