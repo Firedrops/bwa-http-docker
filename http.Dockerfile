@@ -24,18 +24,18 @@ RUN a2enconf fqdn
 
 RUN mkdir -p /data
 
-RUN rm -rf /var/lib/apt/lists/*
-
 COPY mm2.cgi /usr/lib/cgi-bin/bwa.cgi
 RUN chmod +x /usr/lib/cgi-bin/bwa.cgi
-
-#COPY mm2.cgi /usr/lib/cgi-bin/mm2.cgi
-#RUN chmod +x /usr/lib/cgi-bin/mm2.cgi
 
 COPY kalign.cgi /usr/lib/cgi-bin/kalign.cgi
 RUN chmod +x /usr/lib/cgi-bin/kalign.cgi
 
 COPY http/apache2.conf /etc/apache2/sites-available/000-default.conf
 COPY http/entrypoint.sh /entrypoint.sh
+
+ENV PATH "$PATH:/minimap2"
+
+#IDK why this below line was added, but Allen Day must have thought it's necessary, perhaps for security, so I'm leaving it in.
+RUN rm -rf /var/lib/apt/lists/*
 
 ENTRYPOINT bash /entrypoint.sh $BWA_FILES
