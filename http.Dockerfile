@@ -12,6 +12,7 @@ RUN apt-get -y --no-install-recommends install $IMAGE_PACKAGES
 RUN git clone https://github.com/lh3/minimap2
 RUN cd minimap2 && make
 RUN cd /
+ENV PATH "$PATH:/minimap2"
 
 # install Perl CGI module, it's not included into the standard distribution anymore
 RUN curl -L https://cpanmin.us | perl - App::cpanminus
@@ -32,8 +33,6 @@ RUN chmod +x /usr/lib/cgi-bin/kalign.cgi
 
 COPY http/apache2.conf /etc/apache2/sites-available/000-default.conf
 COPY http/entrypoint.sh /entrypoint.sh
-
-ENV PATH "$PATH:/minimap2"
 
 #IDK why this below line was added, but Allen Day must have thought it's necessary, perhaps for security, so I'm leaving it in.
 RUN rm -rf /var/lib/apt/lists/*
