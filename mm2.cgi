@@ -45,7 +45,7 @@ close( F );
 
 print STDERR "input_bytes=$bytes\nhead=$head";
 
-system( "minimap2 -L -ax map-ont /data/$database $tempfile.fq > $tempfile.out" );
+system( "minimap2 -ax map-ont /data/$database $tempfile.fq > $tempfile.out" );
 open( B, "$tempfile.out" );
 print CGI::header('text/plain');
 while ( my $line = <B> ) {
