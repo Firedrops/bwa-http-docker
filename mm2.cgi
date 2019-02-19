@@ -45,15 +45,15 @@ close( F );
 
 print STDERR "input_bytes=$bytes\nhead=$head";
 
-system( "minimap2 -ax map-ont /data/$database $tempfile.fq > $tempfile.out" );
-open( B, "$tempfile.out" );
+system( "minimap2 -L -ax map-ont /data/$database $tempfile.fq > $tempfile.sam" );
+open( B, "$tempfile.sam" );
 print CGI::header('text/plain');
 while ( my $line = <B> ) {
   print $line;
-  if ( $line !~ m/^[@#]/ ) {
+  if ( $line !~ m/^[@#]/ ) { |variable|  
     print STDERR "hit=$line";
   }
 }
 
 unlink "$tempfile.fq";
-unlink "$tempfile.out";
+unlink "$tempfile.sam";
